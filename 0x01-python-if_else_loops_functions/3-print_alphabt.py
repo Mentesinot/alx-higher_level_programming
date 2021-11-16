@@ -1,7 +1,4 @@
-x=97
-while x<123:
-     if x==101 or x==113:
-       x+=1
-     else:
-       print(chr(x),end="")
-       x+=1
+#!/usr/bin/python3
+for x in range(97, 123):
+    if chr(x) is not 'q' and chr(x) is not 'e':
+        print("{}".format(chr(x)), end="")
