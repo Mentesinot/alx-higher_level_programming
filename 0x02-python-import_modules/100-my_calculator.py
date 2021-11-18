@@ -4,14 +4,16 @@ if __name__ == "__main__":
 import sys
 m=len(sys.argv)-1
 if m == 3:
+  a=int(sys.argv[1])
+  b=int(sys.argv[3])
   if sys.argv[2]=='+':
-     print(sys.argv[1],"+",sys.argv[3],"=",add(int(sys.argv[1]),int(sys.argv[3])))
+     print(a,"+", b, "=",add(a,b))
   elif sys.argv[2]=='-':
-     print(sys.argv[1],"-",sys.argv[3],"=",sub(int(sys.argv[1]),int(sys.argv[3]))) 
+     print(a, "-", b ,"=",sub(a,b))
   elif sys.argv[2]=='*':
-     print(sys.argv[1],"*",sys.argv[3],"=",mul(int(sys.argv[1]),int(sys.argv[3])))
+     print(a,"*" ,b ,"=",mul(a,b))
   elif sys.argv[2]=='/':
-     print(sys.argv[1],"/",sys.argv[3],"=",div(int(sys.argv[1]),int(sys.argv[3])))
+     print(a,"/", b,"=",div(a,b))
   else:
      print("Unknown operator. Available operators: +, -, *,/" )
      sys.exit(1)
