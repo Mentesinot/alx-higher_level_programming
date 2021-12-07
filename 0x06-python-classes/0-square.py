@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-# 0-square.py
-# mentesinot tegegn
-"""Define a class Square."""
+"""Defines a class Square"""
 
 
 class Square:
-    """Represent a square."""
+    """A simple Square class"""
     pass
