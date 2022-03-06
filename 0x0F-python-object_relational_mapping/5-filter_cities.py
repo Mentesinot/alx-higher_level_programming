@@ -1,28 +1,20 @@
 #!/usr/bin/python3
 """
-python script  that lists all cities from the database hbtn_0e_4_usa
+python script that lists all states from the database hbtn_0e_0_usa with a
+given name and is safe from MySQL injections
 """
 
-from sys import argv
 import MySQLdb
-
+from sys import argv
 
 if __name__ == "__main__":
-    db_conn = MySQLdb.connect(
-        user=argv[1], passwd=argv[2], db=argv[3], port=3306)
-
-    state_name = argv[4]
-    cursor = db_conn.cursor()
-    cursor.execute("SELECT cities.name FROM cities\
-                    JOIN states ON cities.state_id = states.id\
-                    AND states.name = '{:s}'\
-                    ORDER BY cities.id ASC".format(state_name))
+    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+                         passwd=argv[2], db=argv[3], charset="utf8")
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC",
+                   (argv[4],))
     rows = cursor.fetchall()
-    res = []
-    for i in rows:
-        res.append(i[0])
-
-    print(", ".join(res))
-
+    for row in rows:
+        print(row)
     cursor.close()
-    db_conn.close()
+    db.close()
